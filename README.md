@@ -1,6 +1,6 @@
 # flutter_app_checker
 
-A flutter plugin to check whatever an app is installed in a device on not.
+A flutter plugin to check whether an app is installed on a device or not.
 
 # Android
 
