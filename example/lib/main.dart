@@ -17,7 +17,9 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   bool _isInstalled = false;
-  String appName = "com.qti.qualcomm.deviceinfo";
+  String appName = "instagram";
+  // Android needs package's name 
+  // String appName = "com.instagram.android";
 
   @override
   void initState() {

@@ -9,6 +9,25 @@ public class SwiftFlutterAppCheckerPlugin: NSObject, FlutterPlugin {
   }
 
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
-    result("iOS " + UIDevice.current.systemVersion)
+        switch call.method {
+            case "isAppInstalled":
+                let arguments = call.arguments as? [String: String]
+                let appName = arguments?["appName"]
+                let isInstalled = isAppInstalled(appName: appName)
+                result(isInstalled)
+            default:
+                result(FlutterMethodNotImplemented)
+        }
+  }
+
+  private func isAppInstalled(appName: String?) -> Bool{
+    let appScheme = "\(appName ?? "")://app"
+    let appUrl = URL(string: appScheme)
+
+    if UIApplication.shared.canOpenURL(appUrl! as URL) {
+        return true
+    } else {
+        return false
+    }
   }
 }
