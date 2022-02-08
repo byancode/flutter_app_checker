@@ -21,7 +21,7 @@ public class SwiftFlutterAppCheckerPlugin: NSObject, FlutterPlugin {
   }
 
   private func isAppInstalled(appName: String?) -> Bool{
-    let appScheme = "\(appName ?? "")://app"
+    let appScheme = "\(appName ?? "")://"
     let appUrl = URL(string: appScheme)
 
     if UIApplication.shared.canOpenURL(appUrl! as URL) {
